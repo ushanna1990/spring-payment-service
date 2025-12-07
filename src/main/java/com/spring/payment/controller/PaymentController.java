@@ -17,7 +17,7 @@ public class PaymentController {
     }
 
     @GetMapping("/viewPaymentStatus")
-    public Object viewPaymentStatus(@RequestParam Long transactionId) {
-        return paymentService.viewPaymentStatus(transactionId);
+    public Object viewPaymentStatus(@RequestParam Long id) {
+        return paymentService.viewPaymentStatus(id);
     }
 }
