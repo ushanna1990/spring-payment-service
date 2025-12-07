@@ -22,8 +22,8 @@ public class PaymentService {
         return "Payment processed successfully!";
     }
 
-    public Optional<PaymentEntity> viewPaymentStatus(Long transactionId) {
-        return Optional.of(paymentRepository.findById(transactionId)
-                .orElseThrow(() -> new RuntimeException("Payment not found for transaction ID: " + transactionId)));
+    public Optional<PaymentEntity> viewPaymentStatus(Long id) {
+        return Optional.of(paymentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Payment not found for transaction ID: " + id)));
     }
 }
