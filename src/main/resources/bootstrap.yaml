@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: spring-payment-service
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: http://localhost:8082    # Config Server URI
+      fail-fast: true               # Fail fast if Config Server is not available
