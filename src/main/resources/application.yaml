@@ -1,11 +1,8 @@
 server:
-  port: 8086
+  port: 8087
 
+#Database Configuration
 spring:
-  application:
-    name: spring-payment-service
-
-  #Database Configuration
   datasource:
     url: jdbc:postgresql://localhost:5432/spring_db
     username: postgres
