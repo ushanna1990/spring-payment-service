@@ -1,8 +1,17 @@
 server:
   port: 8087
 
-#Database Configuration
 spring:
+  application:
+    name: spring-payment-service
+
+  config:
+    import: optional:configserver:http://localhost:8082   #Config Server URI
+
+  profiles:
+    active: dev
+
+#Database Configuration
   datasource:
     url: jdbc:postgresql://localhost:5432/spring_db
     username: postgres
