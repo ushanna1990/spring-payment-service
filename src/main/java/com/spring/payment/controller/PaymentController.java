@@ -16,8 +16,13 @@ public class PaymentController {
         return paymentService.savePayment(paymentRequest);
     }
 
-    @GetMapping("/viewPaymentStatus")
+    @GetMapping("/viewPayment")
     public Object viewPaymentStatus(@RequestParam Long id) {
-        return paymentService.viewPaymentStatus(id);
+        return paymentService.viewPayment(id);
+    }
+
+    @GetMapping("/viewAllPayments")
+    public Object viewAllPayments() {
+        return paymentService.viewAllPayments();
     }
 }
