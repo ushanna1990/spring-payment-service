@@ -1,9 +1,13 @@
 package com.spring.payment.controller;
 
 import com.spring.payment.model.PaymentRequest;
+import com.spring.payment.model.PaymentResponse;
 import com.spring.payment.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/payment")
@@ -12,17 +16,17 @@ public class PaymentController {
     private PaymentService paymentService;
 
     @PostMapping("/savePayment")
-    public String savePayment(@RequestBody PaymentRequest paymentRequest) {
-        return paymentService.savePayment(paymentRequest);
+    public ResponseEntity<String> savePayment(@RequestBody PaymentRequest paymentRequest) {
+        return ResponseEntity.ok(paymentService.savePayment(paymentRequest));
     }
 
     @GetMapping("/viewPayment")
-    public Object viewPaymentStatus(@RequestParam Long id) {
-        return paymentService.viewPayment(id);
+    public ResponseEntity<PaymentResponse> viewPaymentStatus(@RequestParam Long id) {
+        return ResponseEntity.ok(paymentService.viewPayment(id));
     }
 
     @GetMapping("/viewAllPayments")
-    public Object viewAllPayments() {
-        return paymentService.viewAllPayments();
+    public ResponseEntity<List<PaymentResponse>> viewAllPayments() {
+        return ResponseEntity.ok(paymentService.viewAllPayments());
     }
 }
